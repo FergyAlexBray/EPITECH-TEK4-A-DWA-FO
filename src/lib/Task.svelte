@@ -2,12 +2,20 @@
 
 	import { tokenStore } from "./stores";
 	import TrashIcon from "./icons/TrashIcon.svelte";
+	import FileIcon from "./icons/FileIcon.svelte"
+
+	interface taskData {
+		id: Number
+		filename: String
+		original_name: String
+	}
 
 	interface task {
 		id: Number
 		title: String
 		description: String
 		creation_date: string
+		attachments: [taskData]
 	}
 
 	export let task: task;
@@ -42,6 +50,10 @@
   	});
 	};
 
+	function download(filename: String) {
+		window.open(`${import.meta.env.VITE_API_URL}/uploads/task/${filename}`)
+	};
+
 </script>
 
 <div class="flex flex-col w-full px-4 my-4 hover:scale-[1.01]">
@@ -56,6 +68,15 @@
 			<div class="font-medium pl-3">{task.description}</div>
 			<div on:click={removeTask} class="hover:scale-105 cursor-pointer select-none"><TrashIcon color="red" /></div>
 		</div>
+
+		{#if task.attachments.length > 0}
+			{#each task.attachments as attachment}
+				<div on:click={() => download(attachment.filename)} class="flex items-center bg-purple-100 rounded p-2 shadow my-2 mx-4 w-fit hover:scale-105 cursor-pointer">
+					<div class="pl-2"><FileIcon color="rgb(147, 51, 234)"/></div>
+					<div class="font-semibold pl-2 text-purple-600">{attachment.original_name}</div>
+				</div>
+			{/each}
+		{/if}
 
 	</div>
 </div>

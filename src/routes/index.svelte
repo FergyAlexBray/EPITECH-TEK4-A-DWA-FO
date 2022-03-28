@@ -5,14 +5,21 @@
 
 	import { tokenStore } from '$lib/stores';
 	import Navbar from "$lib/Navbar.svelte"
-	import Task from '$lib/task.svelte';
+	import Task from '$lib/Task.svelte';
 	import AddTask from "$lib/AddTask.svelte"
+
+	interface taskData {
+		id: Number
+		filename: String
+		original_name: String
+	}
 
 	interface task {
 		id: Number
 		title: String
 		description: String
 		creation_date: string
+		attachments: [taskData]
 	}
 
 	let tasks = [];
@@ -37,7 +44,7 @@
 		})
   	.then((response) => response.json())
   	.then((data) => {
-			tasks = data.tasks;
+			tasks = data.tasks.sort((a: task, b: task) => (a.creation_date < b.creation_date) ? 1 : -1);
 		});
 	});
 
