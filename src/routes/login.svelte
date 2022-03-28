@@ -35,10 +35,13 @@
 		})
   	.then((response) => response.json())
   	.then((data) => {
+		console.log(data)
 			if (isSignIn) {
-				emailStore.update(currentValue => data.username)
-				tokenStore.update(currentValue => data.access_token)
-				goto('/', { replaceState: true })
+				if (data.username && data.access_token) {
+					emailStore.update(currentValue => data.username)
+					tokenStore.update(currentValue => data.access_token)
+					goto('/', { replaceState: true })
+				}
 			} else {
 				console.log(data);
 			}

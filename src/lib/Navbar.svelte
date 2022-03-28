@@ -18,6 +18,7 @@
 	function logout() {
 		tokenStore.update(currentValue => "")
 		emailStore.update(currentValue => "")
+		profileImageStore.update(currentValue => "")
 		goto('/login')
 	}
 
