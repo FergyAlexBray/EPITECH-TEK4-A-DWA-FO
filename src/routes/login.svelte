@@ -35,7 +35,6 @@
 		})
   	.then((response) => response.json())
   	.then((data) => {
-		console.log(data)
 			if (isSignIn) {
 				if (data.username && data.access_token) {
 					emailStore.update(currentValue => data.username)
@@ -43,7 +42,7 @@
 					goto('/', { replaceState: true })
 				}
 			} else {
-				console.log(data);
+				alert('You need to verify your account with the link sent by email.')
 			}
   	});
 	}

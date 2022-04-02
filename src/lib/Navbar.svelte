@@ -14,6 +14,7 @@
 
 	function clickHome() { goto('/') }
 	function clickProfile() { goto('/profile') }
+	function clickAdmin() { goto('/admin') }
 
 	function logout() {
 		tokenStore.update(currentValue => "")
@@ -29,6 +30,8 @@
   <div class="font-semibold p-4 select-none hover:scale-105 antialiased cursor-pointer" on:click={clickHome}>Attack and Defend</div>
 
   <div class="flex items-center">
+	<div on:click={clickAdmin} class="font-semibold pr-8 hover:scale-105 antialiased cursor-pointer" >Admin panel</div>
+
     <div class="flex items-center hover:scale-105 antialiased cursor-pointer" on:click={clickProfile}>
 			<div class="font-semibold">{email}</div>
 			{#if profileImageURL != null && profileImageURL != ""}
