@@ -10,56 +10,7 @@
 
 	let token: String;
 
-	let users = [
-		{
-			email: "test@test.fr",
-			tasks: [
-				{
-					id: 1,
-					title: "test task 1",
-					description: "this is the first test task",
-					creation_date: "2022-03-29T14:01:11.000Z"
-				},
-				{
-					id: 46,
-					title: "test task 2",
-					description: "this is the second test task",
-					creation_date: "2022-03-29T14:01:11.000Z",
-					attachments: [
-						{
-							id: 21,
-							filename: "9.5f28b53f-ef9f-474e-944c-5fd22a6cd0f1.x-bittorrent",
-							original_name: "Permis côtier et fluvial 2015.torrent"
-						}
-					]
-				},
-			]
-		},
-		{
-			email: "mathieu-n@test.fr",
-			tasks: [
-				{
-					id: 1,
-					title: "test task 4",
-					description: "this is the fourth test task",
-					creation_date: "2022-03-29T14:01:11.000Z"
-				},
-				{
-					id: 46,
-					title: "test task 6",
-					description: "this is the sixth test task",
-					creation_date: "2022-03-29T14:01:11.000Z",
-					attachments: [
-						{
-							id: 21,
-							filename: "9.5f28b53f-ef9f-474e-944c-5fd22a6cd0f1.x-bittorrent",
-							original_name: "Permis côtier et fluvial 2015.torrent"
-						}
-					]
-				},
-			]
-		}
-	];
+	let users = [];
 
 	let selectedUser;
 
