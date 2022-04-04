@@ -82,7 +82,7 @@
 		</div>
 	</div>
 
-	<div class="h-full w-full flex">
+	<div class="h-full w-full flex overflow-clip">
   	{#if users}
 			<div class="{selectedUser ? 'w-1/2' : 'w-full'} h-full flex flex-col items-start justify-start">
 				<div class="m-2 text-lg text-slate-400 ml-6 pt-4" >Users:</div>
@@ -97,7 +97,7 @@
 			</div>
 
 			{#if selectedUser}
-				<div class="bg-indigo-200 w-1/2 flex flex-col items-center shadow rounded-lg m-4">
+				<div class="bg-indigo-200 w-1/2 flex flex-col items-center shadow rounded-lg m-4 overflow-auto">
 					<div class="flex justify-end w-full p-4">
 						<div on:click={() => selectUser(null)} class="bg-red-400 text-white p-2 text-center shadow rounded-lg hover:scale-105 antialiased cursor-pointer">Close</div>
 					</div>
